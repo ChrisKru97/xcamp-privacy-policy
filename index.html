@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zásady ochrany osobních údajů — XcamP</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --muted: #555;
+            --accent: #2563eb;
+            --border: #e5e7eb;
+            --section-bg: #f9fafb;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111827;
+                --text: #f3f4f6;
+                --muted: #9ca3af;
+                --accent: #60a5fa;
+                --border: #374151;
+                --section-bg: #1f2937;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li {
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: var(--section-bg);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        .info-box {
+            background: var(--section-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>Zásady ochrany osobních údajů</h1>
+    <p class="subtitle">Mobilní aplikace XcamP &mdash; poslední aktualizace: 18. března 2026</p>
+
+    <h2>1. Správce osobních údajů</h2>
+    <div class="info-box">
+        <strong>Křesťanské společenství, z.&nbsp;s.</strong><br>
+        Na Nivách 259/7, 737 01 Český Těšín<br>
+        Zapsáno u Krajského soudu v Ostravě, oddíl L, vložka 552<br>
+        E-mail: <a href="mailto:info@xcamp.cz">info@xcamp.cz</a>
+    </div>
+
+    <h2>2. Jaké údaje zpracováváme</h2>
+
+    <h3>2.1 Údaje o zařízení a aplikaci</h3>
+    <p>Při prvním spuštění aplikace automaticky shromažďujeme:</p>
+    <ul>
+        <li>Model zařízení, verze operačního systému, platforma (iOS / Android)</li>
+        <li>Verze aplikace a číslo sestavení</li>
+        <li>Jazyk zařízení (locale) a rozlišení obrazovky</li>
+        <li>Anonymní identifikátor uživatele (Firebase Anonymous Auth UID)</li>
+        <li>Token pro push notifikace (FCM token)</li>
+    </ul>
+    <p><strong>Účel:</strong> zajištění správného fungování aplikace, doručování push notifikací, analýza kompatibility.</p>
+    <p><strong>Právní základ:</strong> oprávněný zájem správce (čl. 6 odst. 1 písm. f) GDPR).</p>
+
+    <h3>2.2 Registrační údaje účastníka</h3>
+    <p>Po spárování účtu pomocí QR kódu aplikace stáhne z&nbsp;API (<code>api.xcamp.cz</code>) registrační údaje:</p>
+    <ul>
+        <li>Jméno a příjmení, e-mail, telefon</li>
+        <li>Adresa bydliště, datum narození</li>
+        <li>Kontakt na zákonného zástupce / nouzový kontakt</li>
+        <li>Skupina, stan, QR kód</li>
+    </ul>
+    <p><strong>Tyto údaje jsou uloženy pouze lokálně na zařízení</strong> v&nbsp;šifrované databázi a nejsou odesílány na servery třetích stran prostřednictvím aplikace.</p>
+    <p><strong>Účel:</strong> zobrazení informací o registraci účastníkovi.</p>
+    <p><strong>Právní základ:</strong> plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR).</p>
+
+    <h3>2.3 Uživatelský obsah</h3>
+    <ul>
+        <li><strong>Fotografie</strong> — nahrávané uživatelem do Firebase Storage (<code>photos/{userId}/*.jpg</code>)</li>
+        <li><strong>Hodnocení programu</strong> — číselné hodnocení a textová zpětná vazba</li>
+        <li><strong>Roční zpětná vazba</strong> — celková zpětná vazba k&nbsp;ročníku</li>
+        <li><strong>Zprávy do newsletteru</strong></li>
+        <li><strong>Nastavení notifikací</strong> — preference přijímání push notifikací</li>
+        <li><strong>Oblíbené položky</strong> — seznamy oblíbených programů</li>
+    </ul>
+    <p><strong>Účel:</strong> poskytování funkcí aplikace, zlepšování programu akce.</p>
+    <p><strong>Právní základ:</strong> plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR); u&nbsp;fotografií souhlas (čl. 6 odst. 1 písm. a) GDPR).</p>
+
+    <h3>2.4 Analytická data (Firebase Analytics)</h3>
+    <ul>
+        <li>Zobrazení obrazovek a navigace mezi záložkami</li>
+        <li>Vyhledávací dotazy</li>
+        <li>Události: přidání do oblíbených, nahrání fotografií, odeslání hodnocení, změny nastavení notifikací</li>
+    </ul>
+    <p><strong>Účel:</strong> pochopení způsobu užívání aplikace, zlepšování uživatelského zážitku.</p>
+    <p><strong>Právní základ:</strong> oprávněný zájem správce (čl. 6 odst. 1 písm. f) GDPR).</p>
+
+    <h3>2.5 Hlášení o pádech (Firebase Crashlytics)</h3>
+    <ul>
+        <li>Záznamy o pádech a chybách aplikace</li>
+        <li>Vlastní klíče: anonymní ID uživatele, platforma, kontext operace</li>
+    </ul>
+    <p><strong>Účel:</strong> identifikace a oprava chyb v&nbsp;aplikaci.</p>
+    <p><strong>Právní základ:</strong> oprávněný zájem správce (čl. 6 odst. 1 písm. f) GDPR).</p>
+
+    <h3>2.6 Oprávnění zařízení</h3>
+    <ul>
+        <li><strong>Fotoaparát</strong> — pro skenování QR kódu při párování účtu a pořizování fotografií</li>
+        <li><strong>Push notifikace</strong> — pro doručování upozornění o&nbsp;programu akce</li>
+    </ul>
+
+    <h2>3. Služby třetích stran</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Služba</th>
+            <th>Poskytovatel</th>
+            <th>Účel</th>
+            <th>Zásady ochrany soukromí</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Firebase Authentication</td>
+            <td>Google LLC</td>
+            <td>Anonymní identifikace uživatelů</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Cloud Firestore</td>
+            <td>Google LLC</td>
+            <td>Ukládání dat o&nbsp;zařízení a uživatelského obsahu</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Firebase Storage</td>
+            <td>Google LLC</td>
+            <td>Ukládání fotografií</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Firebase Analytics</td>
+            <td>Google LLC</td>
+            <td>Analytika používání aplikace</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Firebase Crashlytics</td>
+            <td>Google LLC</td>
+            <td>Hlášení o&nbsp;pádech</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        <tr>
+            <td>Firebase Cloud Messaging</td>
+            <td>Google LLC</td>
+            <td>Push notifikace</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <p>Data zpracovávaná službami Firebase mohou být přenášena do USA. Google LLC je certifikován v&nbsp;rámci EU–U.S. Data Privacy Framework.</p>
+
+    <h2>4. Doba uchovávání údajů</h2>
+    <ul>
+        <li><strong>Údaje o&nbsp;zařízení</strong> — po dobu používání aplikace; smazány při odinstalaci nebo na žádost</li>
+        <li><strong>Registrační údaje</strong> — uloženy pouze lokálně; smazány s&nbsp;odinstalací aplikace</li>
+        <li><strong>Uživatelský obsah</strong> (fotografie, hodnocení, zpětná vazba) — po dobu trvání akce a následně pro archivní účely organizátora, max. 3 roky</li>
+        <li><strong>Analytická data</strong> — dle výchozích zásad Firebase Analytics (14 měsíců)</li>
+        <li><strong>Crashlytics data</strong> — dle výchozích zásad Firebase Crashlytics (90 dní)</li>
+    </ul>
+
+    <h2>5. Vaše práva</h2>
+    <p>Jako subjekt údajů máte podle GDPR právo:</p>
+    <ul>
+        <li><strong>na přístup</strong> k&nbsp;osobním údajům (čl. 15)</li>
+        <li><strong>na opravu</strong> nepřesných údajů (čl. 16)</li>
+        <li><strong>na výmaz</strong> údajů (čl. 17)</li>
+        <li><strong>na omezení zpracování</strong> (čl. 18)</li>
+        <li><strong>na přenositelnost</strong> údajů (čl. 20)</li>
+        <li><strong>vznést námitku</strong> proti zpracování na základě oprávněného zájmu (čl. 21)</li>
+        <li><strong>odvolat souhlas</strong> se zpracováním, pokud je zpracování založeno na souhlasu (čl. 7 odst. 3)</li>
+        <li><strong>podat stížnost</strong> u&nbsp;dozorového úřadu — <a href="https://www.uoou.cz" target="_blank" rel="noopener">Úřad pro ochranu osobních údajů</a>, Pplk. Sochora 27, 170 00 Praha 7</li>
+    </ul>
+    <p>Pro uplatnění svých práv nás kontaktujte na <a href="mailto:info@xcamp.cz">info@xcamp.cz</a>.</p>
+
+    <h2>6. Zabezpečení údajů</h2>
+    <p>Přijímáme přiměřená technická a organizační opatření k&nbsp;ochraně vašich údajů:</p>
+    <ul>
+        <li>Komunikace s&nbsp;API probíhá výhradně přes šifrované spojení (HTTPS / TLS)</li>
+        <li>Registrační údaje jsou na zařízení uloženy v&nbsp;šifrované lokální databázi</li>
+        <li>Přístup k&nbsp;datům ve Firebase je řízen bezpečnostními pravidly (Security Rules)</li>
+        <li>Anonymní autentizace — aplikace nevyžaduje osobní přihlášení</li>
+    </ul>
+
+    <h2>7. Děti</h2>
+    <p>Aplikace může být používána účastníky mladšími 16 let. V&nbsp;takovém případě je zpracování osobních údajů podmíněno souhlasem zákonného zástupce, který je součástí registrace na akci.</p>
+
+    <h2>8. Změny těchto zásad</h2>
+    <p>Tyto zásady můžeme příležitostně aktualizovat. O&nbsp;podstatných změnách vás budeme informovat prostřednictvím push notifikace v&nbsp;aplikaci. Aktuální verze je vždy dostupná na této stránce.</p>
+
+    <footer>
+        <p>&copy; 2026 Křesťanské společenství, z.&nbsp;s. &mdash; <a href="mailto:info@xcamp.cz">info@xcamp.cz</a></p>
+    </footer>
+
+</div>
+</body>
+</html>
