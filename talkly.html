@@ -36,7 +36,7 @@
 <body>
 
 <h1>Zásady ochrany osobních údajů</h1>
-<p class="effective-date">Aplikace Talkly · Platné od 23. 3. 2026</p>
+<p class="effective-date">Aplikace Talkly · Platné od 14. 4. 2026</p>
 
 <h2>1. Správce osobních údajů</h2>
 <p>Správcem osobních údajů je Slezská církev evangelická augsburského vyznání (SCEAV).</p>
@@ -44,44 +44,90 @@
 
 <h2>2. Jaké údaje shromažďujeme</h2>
 
-<h3>Údaje o účtu</h3>
+<h3>2.1 Zdravotní údaje (Health Data)</h3>
+<p>Aplikace Talkly slouží k propojení mladých lidí s poradci. Vzhledem k účelu aplikace mohou uživatelé v rámci žádosti (žádostí o kontaktování poradce) dobrovolně poskytnout následující zdravotní údaje, které spadají do kategorie zvláštních kategorií osobních údajů podle čl. 9 GDPR:</p>
+
+<p><strong>Typy zdravotních údajů, které mohou být shromážděny:</strong></p>
 <ul>
-    <li>E-mailová adresa</li>
-    <li>Zobrazované jméno</li>
+    <li><strong>Informace o duševním zdraví</strong> — úzkost, deprese, stres, emocionální potíže, psychické obtíže</li>
+    <li><strong>Informace o emocionálním stavu</strong> — sebevědomí, samota, osobní krize, životní změny</li>
+    <li><strong>Informace o vztazích a rodinné situaci</strong> — problémy ve vztazích, rodinné konflikty, vztah k rodičům</li>
+    <li><strong>Informace o identitě a osobním rozvoji</strong> — otázky identity, hledání smyslu života, osobní růst</li>
 </ul>
 
-<h3>Údaje ze žádostí</h3>
+<p><strong>Jak jsou zdravotní údaje shromažďovány:</strong></p>
+<ul>
+    <li><strong>Odpovědi na dotazník</strong> — při podání žádosti uživatel odpovídá na otázky definované administrátorem, které se mohou týkat duševního zdraví a emocionálního stavu (např. „Trpíš úzkostemi?", „Máš problémy ve vztazích?")</li>
+    <li><strong>Volný text zprávy (otevřená otázka)</strong> — uživatel může popsat svou situaci, aktuální stav a důvod kontaktování poradce, včetně informací o duševním zdraví</li>
+    <li><strong>Výběr poradce podle oblasti</strong> — uživatel může filtrovat poradce podle specializací (úzkost, deprese, stres, vztahy, identita aj.), čímž nepřímo uvádí, s jakými obtížemi se potýká</li>
+</ul>
+
+<p><strong>Účel zpracování zdravotních údajů:</strong></p>
+<ul>
+    <li>Propojení uživatele s vhodným poradcem na základě popsané situace</li>
+    <li>Možnost poradce lépe připravit na konzultaci</li>
+    <li>Zpracování je výhradně pro účely poskytnutí poradenské pomoci</li>
+</ul>
+
+<p><strong>Právní základ:</strong> zpracování je nezbytné pro účely preventivního poradenství (čl. 9 odst. 2 písm. h) GDPR) a na základě výslovného souhlasu uživatele (čl. 9 odst. 2 písm. a) GDPR). Poskytnutí zdravotních údajů je dobrovolné.</p>
+
+<p><strong>Sdílení zdravotních údajů:</strong> Zdravotní údaje ze žádosti jsou sdíleny <strong>výhradně s přiřazeným poradcem</strong>. Nejsou předávány žádným dalším třetím stranám, nejsou využívány k marketingovým účelům, nejsou prodávány ani jinak zpřístupňovány.</p>
+
+<p><strong>Uchovávání zdravotních údajů:</strong> Zdravotní údaje jsou uchovávány po dobu trvání žádosti (od podání po dokončení). Po dokončení žádosti jsou údaje dostupné pouze pro archivní účely poradce. Na žádost uživatele jsou zdravotní údaje neprodleně smazány.</p>
+
+<p><strong>Zabezpečení zdravotních údajů:</strong></p>
+<ul>
+    <li>Data jsou uložena v Firebase Firestore, šifrovaná v klidovém stavu i během přenosu</li>
+    <li>Přístup je řízen Firebase Security Rules — pouze přiřazený poradce má přístup k žádosti</li>
+    <li>Aplikace neukládá obsah žádostí lokálně na zařízení</li>
+</ul>
+
+<h3>2.2 Údaje o účtu</h3>
+<ul>
+    <li>E-mailová adresa (pouze pro režim poradce)</li>
+    <li>Zobrazované jméno (pouze pro režim poradce)</li>
+    <li>Anonymní identifikátor (Firebase Anonymous Auth UID — automaticky generován, bez osobních údajů)</li>
+</ul>
+
+<h3>2.3 Údaje ze žádostí</h3>
 <ul>
     <li>Kontaktní údaje, které zadáte (Instagram, telefon, e-mail, WhatsApp, Messenger)</li>
-    <li>Odpovědi na dotazník definovaný administrátorem</li>
-    <li>Volný text zprávy</li>
+    <li>Odpovědi na dotazník definovaný administrátorem (mohou obsahovat zdravotní údaje — viz sekce 2.1)</li>
+    <li>Volný text zprávy (může obsahovat zdravotní údaje — viz sekce 2.1)</li>
+    <li>Zvolený způsob kontaktování (Instagram, Messenger, WhatsApp, e-mail, telefon)</li>
+    <li>Vybraný termín schůzky (pokud je k dispozici)</li>
 </ul>
 
-<h3>Citlivé údaje</h3>
-<p>V rámci žádostí a odpovědí na dotazník mohou uživatelé dobrovolně sdílet informace týkající se jejich zdravotního stavu, zejména duševního zdraví a emocionální pohody. Tyto údaje považujeme za citlivé a nakládáme s nimi se zvýšenou péčí. Jsou sdíleny výhradně s přiřazeným poradcem.</p>
-
-<h3>Technické údaje</h3>
+<h3>2.4 Údaje o zařízení</h3>
 <ul>
     <li>Tokeny pro push notifikace (Firebase Cloud Messaging)</li>
-    <li>Analytická data o používání aplikace (zobrazení obrazovek, interakce)</li>
-    <li>Hlášení o pádech aplikace (Firebase Crashlytics)</li>
+    <li>Model zařízení a verze operačního systému (pro analytické účely)</li>
 </ul>
+
+<h3>2.5 Analytické údaje a hlášení o chybách</h3>
+<ul>
+    <li>Analytická data o používání aplikace (zobrazení obrazovek, interakce) — Firebase Analytics</li>
+    <li>Hlášení o pádech aplikace — Firebase Crashlytics</li>
+</ul>
+<p>Analytické údaje a hlášení o chybách <strong>neobsahují</strong> zdravotní údaje ani obsah žádostí.</p>
 
 <h2>3. Účel zpracování</h2>
 <ul>
-    <li>Propojení uživatelů s poradci na základě podané žádosti</li>
+    <li>Propojení uživatelů s poradci na základě podané žádosti, včetně zpracování zdravotních údajů za účelem poskytnutí odpovídající poradenské pomoci (podrobnosti viz sekce 2.1)</li>
+    <li>Správa žádostí a jejich stavů (podáno, přijato, dokončeno)</li>
     <li>Zasílání push notifikací o stavu žádostí a událostech</li>
-    <li>Zlepšování stability a funkčnosti aplikace</li>
-    <li>Zpracování případných zdravotních údajů výhradně za účelem propojení uživatele s vhodným poradcem</li>
+    <li>Zlepšování stability a funkčnosti aplikace (analytika, hlášení pádů)</li>
 </ul>
 
 <h2>4. Sdílení údajů</h2>
-<p>Vaše kontaktní údaje ze žádosti jsou sdíleny výhradně s poradcem, kterému je žádost přiřazena. Údaje nejsou předávány třetím stranám za účelem marketingu.</p>
-<p>Případné citlivé údaje týkající se zdravotního stavu (včetně duševního zdraví), které dobrovolně uvedete v žádosti nebo dotazníku, jsou sdíleny výhradně s přiřazeným poradcem a nejsou využívány k žádnému jinému účelu.</p>
-<p>Jako zpracovatel dat slouží služby platformy Google Firebase (Firestore, Authentication, Cloud Messaging, Analytics, Crashlytics). Společnost Google zpracovává data v souladu s vlastními podmínkami ochrany osobních údajů.</p>
+<p>Vaše kontaktní údaje ze žádosti jsou sdíleny výhradně s poradcem, kterému je žádost přiřazena. Žádné osobní údaje ani zdravotní údaje nejsou předávány třetím stranám za účelem marketingu.</p>
+<p>Zdravotní údaje (viz sekce 2.1) jsou sdíleny <strong>výhradně s přiřazeným poradcem</strong> a nejsou využívány k žádnému jinému účelu než k poskytnutí poradenské pomoci.</p>
+<p>Jako zpracovatel dat slouží služby platformy Google Firebase (Firestore, Authentication, Cloud Messaging, Analytics, Crashlytics). Společnost Google zpracovává data v souladu s vlastními podmínkami ochrany osobních údajů. Obsah žádostí (včetně zdravotních údajů) není službám Analytics ani Crashlytics předáván.</p>
 
 <h2>5. Uchovávání údajů</h2>
 <p>Osobní údaje uchováváme po dobu trvání vašeho účtu v aplikaci. Na vaši žádost údaje smažeme. Po smazání účtu jsou vaše údaje odstraněny ze všech aktivních databází.</p>
+<p><strong>Zdravotní údaje</strong> jsou uchovávány po dobu trvání žádosti (podáno → přijato → dokončeno). Po dokončení jsou dostupné pouze pro archivní účely poradce. Na výslovnou žádost uživatele jsou zdravotní údaje neprodleně smazány ze všech systémů.</p>
+<p>Analytická data jsou uchovávána po dobu 14 měsíců dle standardních zásad Firebase Analytics. Hlášení o pádech jsou uchovávána po dobu 90 dní dle zásad Firebase Crashlytics.</p>
 
 <h2>6. Vaše práva</h2>
 <p>Podle obecného nařízení o ochraně osobních údajů (GDPR) máte právo na:</p>
@@ -96,10 +142,11 @@
 <p>Pro uplatnění svých práv nás kontaktujte na <a href="mailto:sekretariat@sceav.cz">sekretariat@sceav.cz</a>.</p>
 
 <h2>7. Bezpečnost</h2>
-<p>Přístup k údajům je omezen pomocí Firebase Security Rules. Veškerá komunikace mezi aplikací a servery je šifrována. Aplikace neukládá osobní údaje lokálně na vašem zařízení — veškerá data jsou načítána ze zabezpečených serverů.</p>
+<p>Přístup k údajům je omezen pomocí Firebase Security Rules — pouze přiřazený poradce má přístup k obsahu žádosti. Veškerá komunikace mezi aplikací a servery je šifrována (HTTPS/TLS). Data v Firebase Firestore jsou šifrována v klidovém stavu. Aplikace neukládá osobní údaje ani zdravotní údaje lokálně na vašem zařízení — veškerá data jsou načítána ze zabezpečených serverů.</p>
+<p>Zdravotní údaje podléhají zvýšené péči — přístup k nim je striktně omezen na přiřazeného poradce a nikoho dalšího.</p>
 
 <h2>8. Děti a mladiství</h2>
-<p>Aplikace Talkly je zaměřena na mládež. Osoby mladší 16 let potřebují k vytvoření účtu a odeslání žádosti souhlas zákonného zástupce, v souladu s článkem 8 GDPR a českou legislativou.</p>
+<p>Aplikace Talkly je zaměřena na mládež. Osoby mladší 16 let potřebují k vytvoření účtu a odeslání žádosti souhlas zákonného zástupce, v souladu s článkem 8 GDPR a českou legislativou. Zpracování zdravotních údajů nezletilých osob se řídí čl. 9 odst. 2 písm. h) GDPR (preventivní poradenství) a vyžaduje souhlas zákonného zástupce.</p>
 
 <h2>9. Změny těchto zásad</h2>
 <p>O případných změnách těchto zásad vás budeme informovat prostřednictvím oznámení v aplikaci. Aktuální znění je vždy dostupné na této stránce.</p>
